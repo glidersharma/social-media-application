@@ -72,6 +72,8 @@
   font-size: 14px;
   cursor: pointer;
   align-items: center;
+  text-decoration: none;
+  color: white;
   
 }
 
@@ -99,7 +101,16 @@
   justify-content: center;
   font-size: 12px;
 }
+#logout{
+  background-color:rgb(141, 209, 228) ;
+  padding-left: 5px;
+  margin-left: 5px;
 
+}
+#logout:hover {
+  background-color:rgb(10, 53, 65) ;
+
+}
 .topbarImg {
   width: 32px;
   height: 32px;

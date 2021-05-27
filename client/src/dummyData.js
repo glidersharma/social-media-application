@@ -1,54 +1,53 @@
-// let imgurl = "https://source.unsplash.com/user/erondu/daily"
 export const Users = [
   {
     id:1,
-    profilePicture: "https://source.unsplash.com/weekly?baby",
+    profilePicture: "person/1.jpeg",
     username: "Tanish Sharma",
   },
   {
     id:2,
-    profilePicture: "https://source.unsplash.com/weekly?people",
-    username: "Mukesh Chaudhary",
+    profilePicture: "person/2.jpeg",
+    username: "Karan singh Katoch",
   },
   {
     id:3,
-    profilePicture: "https://source.unsplash.com/weekly?physical",
-    username: "Swapnil",
+    profilePicture: "person/3.jpeg",
+    username: "Hitesh Kumar",
   },
   {
     id:4,
-    profilePicture: "https://source.unsplash.com/weekly?nature",
-    username: "Kinshuk",
+    profilePicture: "person/4.jpeg",
+    username: "Pyush Kapil",
   },
   {
     id:5,
-    profilePicture: "https://source.unsplash.com/weekly?people",
-    username: "Captian America",
+    profilePicture: "person/5.jpeg",
+    username: "Anshul Sharma",
   },
   {
     id:6,
-    profilePicture: "https://source.unsplash.com/weekly?mens",
-    username: "Shirley Beauchamp",
+    profilePicture: "person/6.jpeg",
+    username: "Bhapu Priya",
   },
   {
     id:7,
-    profilePicture: "https://source.unsplash.com/weekly?Womens",
-    username: "Travis Scott",
+    profilePicture: "person/7.jpeg",
+    username: "Nora Fatiae",
   },
   {
     id:8,
-    profilePicture: "https://source.unsplash.com/weekly?people",
-    username: "Kristen Thomas",
+    profilePicture: "person/8.jpeg",
+    username: "Ajit Lal",
   },
   {
     id:9,
-    profilePicture: "https://source.unsplash.com/weekly?womens",
-    username: "Gary Duty",
+    profilePicture: "person/9.jpeg",
+    username: "Tarun ",
   },
   {
     id:10,
-    profilePicture: "https://source.unsplash.com/weekly?water",
-    username: "Aditya Mankotia",
+    profilePicture: "person/10.jpeg",
+    username: "Tushar",
   },
 ];
 
@@ -56,7 +55,7 @@ export const Posts = [
   {
     id: 1,
     desc: "Love For All, Hatred For None.",
-    photo: "assets/post/1.jpeg",
+    photo: "post/1.jpeg",
     date: "5 mins ago",
     userId: 1,
     like: 32,
@@ -64,7 +63,7 @@ export const Posts = [
   },
   {
     id: 2,
-    photo: "assets/post/2.jpeg",
+    photo: "post/2.jpeg",
     date: "15 mins ago",
     userId: 2,
     like: 2,
@@ -73,7 +72,7 @@ export const Posts = [
   {
     id: 3,
     desc: "Every moment is a fresh beginning.",
-    photo: "assets/post/3.jpeg",
+    photo: "post/3.jpeg",
     date: "1 hour ago",
     userId: 3,
     like: 61,
@@ -81,7 +80,7 @@ export const Posts = [
   },
   {
     id: 4,
-    photo: "assets/post/4.jpeg",
+    photo: "post/4.jpeg",
     date: "4 hours ago",
     userId: 4,
     like: 7,
@@ -89,7 +88,7 @@ export const Posts = [
   },
   {
     id: 5,
-    photo: "assets/post/5.jpeg",
+    photo: "post/5.jpeg",
     date: "5 hours ago",
     userId: 5,
     like: 23,
@@ -97,7 +96,7 @@ export const Posts = [
   },
   {
     id: 6,
-    photo: "assets/post/6.jpeg",
+    photo: "post/6.jpeg",
     date: "1 day ago",
     userId: 6,
     like: 44,
@@ -106,7 +105,7 @@ export const Posts = [
   {
     id: 7,
     desc: "Never regret anything that made you smile.",
-    photo: "assets/post/7.jpeg",
+    photo: "post/7.jpeg",
     date: "2 days ago",
     userId: 7,
     like: 52,
@@ -114,7 +113,7 @@ export const Posts = [
   },
   {
     id: 8,
-    photo: "assets/post/8.jpeg",
+    photo: "post/8.jpeg",
     date: "3 days ago",
     userId: 8,
     like: 15,
@@ -123,7 +122,7 @@ export const Posts = [
   {
     id: 9,
     desc: "Change the world by being yourself.",
-    photo: "assets/post/9.jpeg",
+    photo: "post/9.jpeg",
     date: "5 days ago",
     userId: 9,
     like: 11,
@@ -131,7 +130,7 @@ export const Posts = [
   },
   {
     id: 10,
-    photo: "assets/post/10.jpeg",
+    photo: "post/10.jpeg",
     date: "1 week ago",
     userId: 10,
     like: 104,

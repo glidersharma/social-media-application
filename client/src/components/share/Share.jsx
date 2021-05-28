@@ -82,10 +82,10 @@ export default function Share() {
               <Label htmlColor="blue" className="shareIcon" />
               <span className="shareOptionText">Tag</span>
             </div>
-            <div className="shareOption">
+            {/* <div className="shareOption">
               <Room htmlColor="green" className="shareIcon" />
               <span className="shareOptionText">Location</span>
-            </div>
+            </div> */}
             <div className="shareOption">
               <EmojiEmotions htmlColor="goldenrod" className="shareIcon" />
               <span className="shareOptionText">Feelings</span>

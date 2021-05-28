@@ -87,3 +87,63 @@
     font-weight: 500;
     cursor: pointer;
 }
+@media  only screen and (max-width: 600px) {
+  .login {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #logo{
+    height: 100px;
+    width: 115px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .loginWrapper {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .loginDesc{
+    display: none;
+  }
+  
+.loginLeft{
+  font-size:30%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginRight{
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.loginLogo {
+  font-size: 50px;
+  font-weight: 800;
+  color:  rgb(65, 140, 165);
+  margin-bottom: 10px;
+}
+.loginBox{
+  height: 23rem;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position:relative;
+}
+.loginRegisterButton{
+  font-size: 100%;
+  position:relative;
+  }
+}

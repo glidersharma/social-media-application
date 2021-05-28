@@ -102,13 +102,13 @@
   font-size: 12px;
 }
 #logout{
-  background-color:rgb(141, 209, 228) ;
+  background-color:rgb(65, 140, 165) ;
   padding-left: 5px;
   margin-left: 5px;
 
 }
 #logout:hover {
-  background-color:rgb(10, 53, 65) ;
+  background-color:rgb(125, 191, 209) ;
 
 }
 .topbarImg {

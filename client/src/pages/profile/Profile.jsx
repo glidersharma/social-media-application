@@ -52,6 +52,32 @@ export default function Profile() {
               <span className="profileInfoDesc">{user.desc}</span>
             </div>
           </div>
+          <div className="rightbarInformation1">
+        <h4 className="rightbarTitle">User information</h4>
+        <div className="rightbarInfo">
+          <div className="rightbarInfoItem">
+            <span className="rightbarInfoKey">City: Delhi</span>
+            <span className="rightbarInfoValue">{user.city}</span>
+          </div>
+          <div className="rightbarInfoItem">
+            <span className="rightbarInfoKey">From: Mumbai</span>
+            <span className="rightbarInfoValue">{user.from}</span>
+          </div>
+          <div className="rightbarInfoItem">
+            <span className="rightbarInfoKey">Relationship: Single</span>
+            <span className="rightbarInfoValue">
+              {user.relationship === 1
+                ? "Single"
+                : user.relationship === 1
+                ? "Married"
+                : ""}
+            </span>
+          </div>
+          <div className="rightbarInfoItem">
+            <span className="rightbarInfoKey">About info<b>--</b></span>
+          </div>
+        </div>
+        </div>
           <div className="profileRightBottom">
             <Feed username={username} />
             <Rightbar user={user} />

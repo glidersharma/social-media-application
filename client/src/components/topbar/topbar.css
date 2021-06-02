@@ -118,3 +118,22 @@
   object-fit: cover;
   cursor: pointer;
 }
+@media  only screen and (max-width: 600px) {
+  .topbarContainer{
+    position: sticky;
+  }
+
+  .topbarLinks{
+    display: none;
+  }
+  
+  .logo {
+    font-size: 35px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    padding-left:2% ;
+    padding-top: 20px;
+  }
+}

@@ -100,3 +100,8 @@
 .rightbarFollowButton:focus{
   outline: none;
 }
+@media  only screen and (max-width: 600px) {
+  .rightbar {
+  display: none;
+}
+}

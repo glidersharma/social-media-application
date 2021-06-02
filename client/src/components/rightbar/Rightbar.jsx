@@ -74,6 +74,7 @@ export default function Rightbar({ user }) {
             {followed ? <Remove /> : <Add />}
           </button>
         )}
+        <div className="rightbarInformation">
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
@@ -94,6 +95,7 @@ export default function Rightbar({ user }) {
                 : "-"}
             </span>
           </div>
+        </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>
         <div className="rightbarFollowings">

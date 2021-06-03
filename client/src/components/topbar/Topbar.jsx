@@ -36,7 +36,9 @@ export default function Topbar() {
             
           </div>
           <div className="topbarIconItem">
+          <Link to={`/messanger`} style={{color: "white" }}>
             <Chat />
+            </Link>
            
           </div>
           <div className="topbarIconItem">

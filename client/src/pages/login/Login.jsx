@@ -55,7 +55,6 @@ const register = ()=>{
                 "Log In"
               )}
             </button>
-            <span className="loginForgot">Forgot Password?</span>
             <button className="loginRegisterButton" onClick={register}>
               {isFetching ? (
                 <CircularProgress color="white" size="20px" />

@@ -5,6 +5,7 @@ import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import ReactPlayer from 'react-player';
 
 export default function Post({ post }) {
   const [like, setLike] = useState(post.likes.length);
@@ -12,7 +13,8 @@ export default function Post({ post }) {
   const [user, setUser] = useState({});
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const { user: currentUser } = useContext(AuthContext);
-
+ const posturl = PF+post.img;
+ console.log(post.img);
   useEffect(() => {
     setIsLiked(post.likes.includes(currentUser._id));
   }, [currentUser._id, post.likes]);
@@ -57,7 +59,8 @@ export default function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-          <img className="postImg" src={PF + post.img} alt="" />
+          {posturl.match(/\.(jpg|jpeg|png|gif|PNG|JPEG|JPG)$/)!=null||post.img == undefined ?<img className="postImg" src={PF + post.img} alt="" />:          
+          <ReactPlayer className="postImg" url={PF + post.img} playing="true" controls="true"  />}
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

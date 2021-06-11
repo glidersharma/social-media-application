@@ -1,10 +1,25 @@
 import "./sidebar.css";
-import { Users } from "../../dummyData";
+// import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
+import {useEffect, useState } from "react";
 import {Search
 } from "@material-ui/icons";
+import axios from "axios";
 
 export default function Sidebar() {
+  const [user, setuser] = useState([]);
+  useEffect(() => {
+    const getuser = async () => {
+      try {
+        const userList = await axios.post("/users/user");
+        setuser(userList.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getuser();
+  }, []);
+  
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -17,7 +32,7 @@ export default function Sidebar() {
         </div>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
-          {Users.map((u) => (
+          {user.map((u) => (
             <CloseFriend key={u.id} user={u} />
           ))}
         </ul>

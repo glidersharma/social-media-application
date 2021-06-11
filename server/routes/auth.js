@@ -14,6 +14,7 @@ router.post("/register", async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
+      profilePicture:"person/noAvatar.png",
     });
 
     //save user and respond
@@ -21,6 +22,7 @@ router.post("/register", async (req, res) => {
     res.status(200).json(user);
   } catch (err) {
     console.log(err)
+    alert("user Already exist");
     res.status(500).json(err)
   }
 });
@@ -37,6 +39,7 @@ router.post("/login", async (req, res) => {
     res.status(200).json(user)
   } catch (err) {
     res.status(500).json(err)
+    alert("Incorrect username and password");
     console.log(err)
   }
 });

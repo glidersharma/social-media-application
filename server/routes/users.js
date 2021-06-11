@@ -54,7 +54,16 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// get all user acecct loged in user 
+router.post("/user", async (req, res) => {
+  try {
+    const user = await User.find();
+    res.status(200).json(user)
+  } catch (err) {
+    res.status(500).json(err)
+    console.log(err)
+  }
+});
 //get friends
 router.get("/friends/:userId", async (req, res) => {
   try {

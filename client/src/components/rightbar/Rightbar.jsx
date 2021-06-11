@@ -1,6 +1,6 @@
 import "./rightbar.css";
 import { Users } from "../../dummyData";
-import Online from "../online/Online";
+import CloseFriend from "../closeFriend/CloseFriend";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -44,7 +44,7 @@ export default function Rightbar({ user }) {
     } catch (err) {
     }
   };
-
+console.log(friends);
   const HomeRightbar = () => {
     return (
       <>
@@ -57,8 +57,8 @@ export default function Rightbar({ user }) {
         <img className="rightbarAd" src="assets/ad.png" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-          {Users.map((u) => (
-            <Online key={u.id} user={u} />
+          {friends.map((u) => (
+            <CloseFriend key={u.id} user={u} />
           ))}
         </ul>
       </>
@@ -74,6 +74,12 @@ export default function Rightbar({ user }) {
             {followed ? <Remove /> : <Add />}
           </button>
         )}
+        {/* {user.username === currentUser.username && (
+          <button className="rightbarFollowButton" onClick={handleClick}>
+            {followed ? "Update" : "Update"}
+            {followed ? <Remove /> : <Add />}
+          </button>
+        )} */}
         <div className="rightbarInformation">
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">

@@ -2,7 +2,6 @@ import "./share.css";
 import {
   PermMedia,
   Label,
-  Room,
   EmojiEmotions,
   Cancel,
 } from "@material-ui/icons";
@@ -74,7 +73,7 @@ export default function Share() {
                 style={{ display: "none" }}
                 type="file"
                 id="file"
-                accept=".png,.jpeg,.jpg"
+                accept="image/*|video/*"
                 onChange={(e) => setFile(e.target.files[0])}
               />
             </label>

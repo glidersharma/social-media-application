@@ -8,6 +8,7 @@ import {
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import ReactPlayer from "react-player";
 
 export default function Share() {
   const { user } = useContext(AuthContext);
@@ -30,14 +31,14 @@ export default function Share() {
       console.log(newPost);
       try {
         await axios.post("/upload", data);
-      } catch (err) {}
+      } catch (err) { }
     }
     try {
       await axios.post("/posts", newPost);
       window.location.reload();
-    } catch (err) {}
+    } catch (err) { }
   };
-
+// console.log(file);
   return (
     <div className="share">
       <div className="shareWrapper">
@@ -60,7 +61,10 @@ export default function Share() {
         <hr className="shareHr" />
         {file && (
           <div className="shareImgContainer">
-            <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
+            {/* <img className="shareImg" src={URL.createObjectURL(file)} alt="" /> */}
+
+            {file.name.match(/\.(jpg|jpeg|png|gif|PNG|JPEG|JPG)$/) != null ? <img className="postImg" src={URL.createObjectURL(file)} alt="" /> :
+              <ReactPlayer className="postImg" url={URL.createObjectURL(file)} playing="true" controls="true" />}
             <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
           </div>
         )}
@@ -94,3 +98,6 @@ export default function Share() {
     </div>
   );
 }
+
+
+

@@ -74,12 +74,11 @@ console.log(friends);
             {followed ? <Remove /> : <Add />}
           </button>
         )}
-        {/* {user.username === currentUser.username && (
+        {user.username === currentUser.username && (
           <button className="rightbarFollowButton" onClick={handleClick}>
-            {followed ? "Update" : "Update"}
-            {followed ? <Remove /> : <Add />}
+            Update
           </button>
-        )} */}
+        )}
         <div className="rightbarInformation">
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">

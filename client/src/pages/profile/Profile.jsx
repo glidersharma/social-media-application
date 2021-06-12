@@ -11,6 +11,29 @@ export default function Profile() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
   const username = useParams().username;
+  const [file, setFile] = useState(null);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    // if (file) {
+    //   const data = new FormData();
+    //   const fileName = user.username+ file.name;
+    //   data.append("name", fileName);
+    //   data.append("file", file);
+    //   newPost.img = fileName;
+    //   console.log(newPost);
+    //   try {
+    //     await axios.post("/upload", data);
+    //   } catch (err) {}
+    // }
+    // try {
+    //   await axios.post("/posts", newPost);
+    //   window.location.reload();
+    // } catch (err) {}
+  };
+
+  
+
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -37,6 +60,7 @@ export default function Profile() {
                 }
                 alt=""
               />
+              <label htmlFor="file" className="shareOption">
               <img
                 className="profileUserImg"
                 src={
@@ -46,6 +70,15 @@ export default function Profile() {
                 }
                 alt=""
               />
+              <input
+                style={{ display: "none" }}
+                type="file"
+                id="file"
+                accept="image/*"
+                onChange={(e) => {setFile(e.target.files[0]);
+                }}
+                                          />
+            </label>             
             </div>
             <div className="profileInfo">
               <h4 className="profileInfoName">{user.username}</h4>
@@ -53,31 +86,31 @@ export default function Profile() {
             </div>
           </div>
           <div className="rightbarInformation1">
-        <h4 className="rightbarTitle">User information</h4>
-        <div className="rightbarInfo">
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">City: Delhi</span>
-            <span className="rightbarInfoValue">{user.city}</span>
+            <h4 className="rightbarTitle">User information</h4>
+            <div className="rightbarInfo">
+              <div className="rightbarInfoItem">
+                <span className="rightbarInfoKey">City: Delhi</span>
+                <span className="rightbarInfoValue">{user.city}</span>
+              </div>
+              <div className="rightbarInfoItem">
+                <span className="rightbarInfoKey">From: Mumbai</span>
+                <span className="rightbarInfoValue">{user.from}</span>
+              </div>
+              <div className="rightbarInfoItem">
+                <span className="rightbarInfoKey">Relationship: Single</span>
+                <span className="rightbarInfoValue">
+                  {user.relationship === 1
+                    ? "Single"
+                    : user.relationship === 1
+                      ? "Married"
+                      : ""}
+                </span>
+              </div>
+              <div className="rightbarInfoItem">
+                <span className="rightbarInfoKey">About info<b>--</b></span>
+              </div>
+            </div>
           </div>
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">From: Mumbai</span>
-            <span className="rightbarInfoValue">{user.from}</span>
-          </div>
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">Relationship: Single</span>
-            <span className="rightbarInfoValue">
-              {user.relationship === 1
-                ? "Single"
-                : user.relationship === 1
-                ? "Married"
-                : ""}
-            </span>
-          </div>
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">About info<b>--</b></span>
-          </div>
-        </div>
-        </div>
           <div className="profileRightBottom">
             <Feed username={username} />
             <Rightbar user={user} />

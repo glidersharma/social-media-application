@@ -22,6 +22,7 @@
   align-items: center;
   text-decoration: none;
   color: white;
+  font-weight: bold;
 }
 .icon {
   /* flex: 1;  */

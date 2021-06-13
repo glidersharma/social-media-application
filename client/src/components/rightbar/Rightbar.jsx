@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
 import { Modal, Button, Form } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.css";
-
+// import "bootstrap/dist/css/bootstrap.css";
+// import { useRef } from "react";
+import ModalUpdate from "../ModalUpdate/ModalUpdate";
+ 
 export default function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
@@ -16,16 +18,63 @@ export default function Rightbar({ user }) {
   const [followed, setFollowed] = useState(
     currentUser.followings.includes(user?.id)
   );
-
+  
+  // const Bio = useRef();
+  // const status = useRef();
+  // const city = useRef();
+  // const From = useRef();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const onLoginFormSubmit = (e) => {
-    e.preventDefault();
-    handleClose();
-  }
+
+
+
+
+
+// console.log(file);
+
+
+
+
+
+
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   const updateedData = {
+  //     desc: Bio.current.value,
+  //   };
+  //   if (file) {
+  //     const data = new FormData();
+  //     const fileName = Date.now()+user.username + file.name;
+  //     data.append("name", fileName);
+  //     data.append("file", file);
+  //     updateedData.img = fileName;
+  //     console.log(updateedData);
+  //     try {
+        // await axios.post("/upload", data);
+      // } catch (err) { }
+    // }
+    // try {
+      // await axios.post("/posts", newPost);
+      // window.location.reload();
+    // } catch (err) { }
+    // handleClose();
+  // }
+// console.log(file);
+// const updatePhoto = (file)=>{
+//   setImage(file)
+// }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -58,40 +107,62 @@ export default function Rightbar({ user }) {
     } catch (err) {
     }
   };
-console.log(friends);
-const LoginForm = ({ onSubmit }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  return (
-    <Form onSubmit={onSubmit}>
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="Enter email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </Form.Group>
+  // console.log(friends);
+ 
+  // const LoginForm = () => {
+  //   return (
+  //     <Form onSubmit={onSubmit}>
+  //       <Form.Group controlId="formBasicEmail">
+  //         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+  //           <Form.Label>Bio</Form.Label>
+  //           <Form.Control as="textarea" rows={2}
+  //          ref={Bio} />
+  //         </Form.Group>
+  //       </Form.Group>
 
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Remember Me!" />
-      </Form.Group>
-      <Button variant="primary" type="submit" block>
-        Login
-      </Button>
-    </Form>
-  );
-};
+  //       <Form.Group className="mb-3" controlId="formBasicCity">
+  //         <Form.Label>City</Form.Label>
+  //         <Form.Control
+  //           type="text"
+  //           placeholder="like : Saharanpur"
+  //           ref={city}
+  //         />
+  //       </Form.Group>
+
+  //       <Form.Group className="mb-3" controlId="formBasicStatus">
+  //         <Form.Label>Relationship Status</Form.Label>
+  //         <Form.Control
+  //           type="text"
+  //           placeholder="Like :Single "
+  //           ref={status}
+  //                     />
+  //       </Form.Group>
+  //       <Form.Group className="mb-3" controlId="formBasicFrom">
+  //         <Form.Label>From</Form.Label>
+  //         <Form.Control
+  //           type="text"
+  //           placeholder="like : Pinjore"
+  //           ref={From}
+  //         />
+  //       </Form.Group>
+  //       <label htmlFor="file" className="shareOption">
+  //             {/* <PermMedia htmlColor="tomato" className="shareIcon" /> */}
+  //             <span className="shareOptionText">Photo or Video</span>
+  //             <input
+  //               style={{ display: "none" }}
+  //               type="file"
+  //               id="file"
+  //               accept="image/*|video/*"
+  //               onSelect={(e) => setImage(e.target.files[0])}
+  //               // onChange={handlechange}
+  //             />
+  //           </label>
+  //       <Button className="mt-3"variant="primary" type="submit" block>
+  //        Update
+  //       </Button>
+  //     </Form>
+  //   );
+  // };
 
   const HomeRightbar = () => {
     return (
@@ -112,7 +183,7 @@ const LoginForm = ({ onSubmit }) => {
       </>
     );
   };
-  
+
 
   const ProfileRightbar = () => {
     return (
@@ -124,47 +195,43 @@ const LoginForm = ({ onSubmit }) => {
           </button>
         )}
         {user.username === currentUser.username && (
-             <Button variant="primary" onClick={handleShow}>
+          <Button variant="primary"className="mb-3" onClick={handleShow}>
             Edit Profile
-           </Button>
-            
-        )}
-        
-        <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Login Form</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <LoginForm onSubmit={onLoginFormSubmit} />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close Modal
           </Button>
-        </Modal.Footer>
-      </Modal>
+
+        )}
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header >
+            <Modal.Title>Update Profile</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <ModalUpdate />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close 
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <div className="rightbarInformation">
-        <h4 className="rightbarTitle">User information</h4>
-        <div className="rightbarInfo">
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">{user.city}</span>
+          <h4 className="rightbarTitle">User information</h4>
+          <div className="rightbarInfo">
+            <div className="rightbarInfoItem">
+              <span className="rightbarInfoKey">City:</span>
+              <span className="rightbarInfoValue">{user.city}</span>
+            </div>
+            <div className="rightbarInfoItem">
+              <span className="rightbarInfoKey">From:</span>
+              <span className="rightbarInfoValue">{user.from}</span>
+            </div>
+            <div className="rightbarInfoItem">
+              <span className="rightbarInfoKey">Relationship:</span>
+              <span className="rightbarInfoValue">
+               {user.relationship}
+              </span>
+            </div>
           </div>
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">From:</span>
-            <span className="rightbarInfoValue">{user.from}</span>
-          </div>
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">
-              {user.relationship === 1
-                ? "Single"
-                : user.relationship === 1
-                ? "Married"
-                : "-"}
-            </span>
-          </div>
-        </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>
         <div className="rightbarFollowings">
@@ -194,7 +261,7 @@ const LoginForm = ({ onSubmit }) => {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-        
+
         {user ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
     </div>

@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 
 //update user
 router.put("/:id", async (req, res) => {
+  console.log(req.body.userId);
+  console.log(req.params.id);
   if (req.body.userId === req.params.id || req.body.isAdmin) {
     if (req.body.password) {
       try {
@@ -19,7 +21,9 @@ router.put("/:id", async (req, res) => {
       });
       res.status(200).json("Account has been updated");
     } catch (err) {
+      
       return res.status(500).json(err);
+      
     }
   } else {
     return res.status(403).json("You can update only your account!");

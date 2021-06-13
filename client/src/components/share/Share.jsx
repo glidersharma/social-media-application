@@ -38,7 +38,7 @@ export default function Share() {
       window.location.reload();
     } catch (err) { }
   };
-// console.log(file);
+console.log(file);
   return (
     <div className="share">
       <div className="shareWrapper">
@@ -67,7 +67,8 @@ export default function Share() {
               <ReactPlayer className="postImg" url={URL.createObjectURL(file)} playing="true" controls="true" />}
             <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
           </div>
-        )}
+        )
+        }
         <form className="shareBottom" onSubmit={submitHandler}>
           <div className="shareOptions">
             <label htmlFor="file" className="shareOption">
@@ -79,6 +80,7 @@ export default function Share() {
                 id="file"
                 accept="image/*|video/*"
                 onChange={(e) => setFile(e.target.files[0])}
+                // onChange={handlechange}
               />
             </label>
             <div className="shareOption">

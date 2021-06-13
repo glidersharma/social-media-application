@@ -13,25 +13,7 @@ export default function Profile() {
   const username = useParams().username;
   const [file, setFile] = useState(null);
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    // if (file) {
-    //   const data = new FormData();
-    //   const fileName = user.username+ file.name;
-    //   data.append("name", fileName);
-    //   data.append("file", file);
-    //   newPost.img = fileName;
-    //   console.log(newPost);
-    //   try {
-    //     await axios.post("/upload", data);
-    //   } catch (err) {}
-    // }
-    // try {
-    //   await axios.post("/posts", newPost);
-    //   window.location.reload();
-    // } catch (err) {}
-  };
-
+  
   
 
 

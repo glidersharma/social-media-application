@@ -1,11 +1,13 @@
 import "./rightbar.css";
-import { Users } from "../../dummyData";
+// import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
+import { Modal, Button, Form } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -14,6 +16,18 @@ export default function Rightbar({ user }) {
   const [followed, setFollowed] = useState(
     currentUser.followings.includes(user?.id)
   );
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const onLoginFormSubmit = (e) => {
+    e.preventDefault();
+    handleClose();
+  }
+
+
 
   useEffect(() => {
     const getFriends = async () => {
@@ -45,6 +59,40 @@ export default function Rightbar({ user }) {
     }
   };
 console.log(friends);
+const LoginForm = ({ onSubmit }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  return (
+    <Form onSubmit={onSubmit}>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control
+          type="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Remember Me!" />
+      </Form.Group>
+      <Button variant="primary" type="submit" block>
+        Login
+      </Button>
+    </Form>
+  );
+};
+
   const HomeRightbar = () => {
     return (
       <>
@@ -64,6 +112,7 @@ console.log(friends);
       </>
     );
   };
+  
 
   const ProfileRightbar = () => {
     return (
@@ -75,10 +124,25 @@ console.log(friends);
           </button>
         )}
         {user.username === currentUser.username && (
-          <button className="rightbarFollowButton" onClick={handleClick}>
-            Update
-          </button>
+             <Button variant="primary" onClick={handleShow}>
+            Edit Profile
+           </Button>
+            
         )}
+        
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login Form</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <LoginForm onSubmit={onLoginFormSubmit} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close Modal
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <div className="rightbarInformation">
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">
@@ -130,6 +194,7 @@ console.log(friends);
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
+        
         {user ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
     </div>

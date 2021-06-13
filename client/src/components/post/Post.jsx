@@ -14,7 +14,7 @@ export default function Post({ post }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const { user: currentUser } = useContext(AuthContext);
  const posturl = PF+post.img;
- console.log(post.img);
+//  console.log(post.img);
   useEffect(() => {
     setIsLiked(post.likes.includes(currentUser._id));
   }, [currentUser._id, post.likes]);
@@ -60,7 +60,7 @@ export default function Post({ post }) {
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
           {posturl.match(/\.(jpg|jpeg|png|gif|PNG|JPEG|JPG)$/)!=null||post.img == undefined ?<img className="postImg" src={PF + post.img} alt="" />:          
-          <ReactPlayer className="postImg" url={PF + post.img} playing="true" controls="true"  />}
+          <ReactPlayer className="postImg" url={PF + post.img} playing="false"  controls="true"  />}
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

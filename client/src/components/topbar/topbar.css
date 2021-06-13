@@ -12,15 +12,16 @@
 .topbarLeft {
   flex: 3;
   padding-bottom: 10px;
+  padding-top: 18px;
 }
 
 .logo {
   font-size: 35px;
-  /* padding-top: px; */
-  margin-left: 5px;
-  font-weight: bold;
-  color: white;
+  margin-right: 10px;
   cursor: pointer;
+  align-items: center;
+  text-decoration: none;
+  color: white;
 }
 .icon {
   /* flex: 1;  */
@@ -29,7 +30,7 @@
   /* flex-direction: row; */
 }
 #iconimg{
-  margin-top: 15px;
+  margin-top: -20px;
   height: 45px;
 }
 .topbarCenter {

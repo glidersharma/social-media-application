@@ -1,5 +1,5 @@
 import "./rightbar.css";
-// import { Users } from "../../dummyData";
+import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -176,7 +176,7 @@ export default function Rightbar({ user }) {
         <img className="rightbarAd" src="assets/ad.png" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-          {friends.map((u) => (
+          {Users.map((u) => (
             <CloseFriend key={u.id} user={u} />
           ))}
         </ul>
